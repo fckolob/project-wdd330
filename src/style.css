@@ -9,6 +9,13 @@ a:hover {
   color: #535bf2;
 }
 
+body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f7f7f7;
+}
+
 #body-container {
   
   display: grid;
@@ -28,6 +35,7 @@ a:hover {
   background-color: darkblue;
   width: 100%;
   place-items: center;
+  max-height: 100px;
 }
 
 #recent-visited-container{
@@ -35,6 +43,8 @@ a:hover {
   grid-column-end: 2;
   grid-row-start: 2;
   grid-row-end: 3;
+  max-height: 100px;
+  padding: 0 30px;
 }
 
 #card-container{
@@ -42,26 +52,50 @@ a:hover {
   grid-column-end: 2;
   grid-row-start: 3;
   grid-row-end: 4;
+  max-width: 1150px;
+  padding: 0 30px;
+  margin: 0 auto;
   display: flex;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 20px;
 }
 
-#card-container > div{
-  margin: 1em;
-  padding: 1em;
-  background-color: #f7df1e;
-  border-radius: 1em;
-  box-shadow: 0 0 1em #f7df1e;
-  transition: box-shadow 0.25s;
-  width: 10rem;
-  height:auto;
+.launch-card{
+  flex: 1 250px;
+  flex-direction: column;
+  
+  max-width: 300px;
+  padding: 20px 30px;
+  background-color: #646cff;
+  border-radius: 10px;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.15);
 }
 
 .launch-img{
-  width: 100%;
-  height: 100%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
   border-radius: 1em;
 }
 
+.astronomy-card{
+  flex: 1 250px;
+  flex-direction: column;
+  
+  max-width: 1150px;
+  padding: 20px 30px;
+  background-color: #646cff;
+  border-radius: 10px;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.15);
+}
+
+.astronomy-img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 1em;
+}
 #news-container{
   grid-column-start: 2;
   grid-column-end: 3;
@@ -104,7 +138,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #de0909d3;
   cursor: pointer;
   transition: border-color 0.25s;
 }

@@ -26,4 +26,6 @@ export function addToLocalStorage(data, key = LOCAL_STORAGE_KEY) {
     return response.json();
   }
 
-  export function templateStringLiteralTemplate(){}
+  export function clearHtmlElement(element) {
+    element.innerHTML = '';
+  }

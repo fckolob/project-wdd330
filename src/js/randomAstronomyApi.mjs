@@ -8,3 +8,7 @@ try {
 } catch (error) {
 	console.error(error);
 }}
+
+export function templateStringLiteralAstronomy(data) {
+	return `<div><h1>${data.title}</h1><p>${data.date}</p><p>${data.explanation}</p><img class="astronomy-img" src="${data.url}" alt="${data.title}"></img><div/>`;
+}
