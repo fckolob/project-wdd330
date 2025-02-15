@@ -15,6 +15,8 @@ import { templateStringLiteralAstronomy } from "./js/randomAstronomyApi.mjs";
 
 import SelectButton from "./js/randomAstronomyButton.mjs";
 
+import { templateStringLiteralNews } from "./js/newsApi.mjs";
+
 const randomAstronomyButton = document.querySelector('#random-astronomy-button');
 
 
@@ -23,6 +25,11 @@ const launchApiUrl = 'https://lldev.thespacedevs.com/2.3.0/launches/?format=json
 
 const randomAstronomyApiUrl = 'https://api.nasa.gov/planetary/apod?api_key=3GCJlF6i1B6D9rEgLXpLPXbX40jtBEOeCsGxLAtg';
 
+const newsApiUrl = 'https://api.spaceflightnewsapi.net/v4/articles/';
+
+const newsData = await fetchApi(newsApiUrl);
+
+console.log(newsData);
 
 
 const randomAstronomydata = await fetchApi(randomAstronomyApiUrl);
@@ -31,17 +38,7 @@ const launchData = await fetchApi(launchApiUrl);
 
 const selectButton1 = new SelectButton(randomAstronomyButton, launchData, templateStringLiteralLaunches, Card, templateStringLiteralAstronomy, randomAstronomydata, clearHtmlElement, '#card-container');
 
-const button = function buttonFn() {if (randomAstronomyButton.textContent === 'Launches') {
-selectButton1.launches();
-randomAstronomyButton.textContent = 'Random Astronomy';}
-
-else {
-selectButton1.astronomy();
-
-randomAstronomyButton.textContent = 'Launches';}
-};
-
-randomAstronomyButton.addEventListener('click', button);
+randomAstronomyButton.addEventListener('click', () => selectButton1.handleButtonClick());
     
 
 
@@ -51,6 +48,10 @@ let launchCard = new Card(launchData.results[i], templateStringLiteralLaunches(l
 launchCard.displayCard();
 }
 
+for (let i = 0; i < newsData.results.length; i++) {
+    let newsCard = new Card(newsData.results[i], templateStringLiteralNews(newsData.results[i]), 'news-card', '#news-container');
+    newsCard.displayCard();
+}
 
 
 

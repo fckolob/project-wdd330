@@ -28,4 +28,13 @@ export default class SelectButton {
         
     }
 
+    handleButtonClick(){
+        if (this.button.textContent === 'Launches') {
+            this.launches();
+            this.button.textContent = 'Random Astronomy';}
+        else {
+            this.astronomy();
+            this.button.textContent = 'Launches';}
+    }
+
 }
