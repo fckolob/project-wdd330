@@ -11,11 +11,15 @@ import Card from "./js/Card.mjs";
 
 import { templateStringLiteralLaunches } from "./js/launchApi.mjs";
 
+import { templateStringLiteralLaunchesBig } from "./js/launchApi.mjs";
+
 import { templateStringLiteralAstronomy } from "./js/randomAstronomyApi.mjs";
 
 import SelectButton from "./js/randomAstronomyButton.mjs";
 
 import { templateStringLiteralNews } from "./js/newsApi.mjs";
+
+import { countDown } from "./js/ultils.mjs";
 
 const randomAstronomyButton = document.querySelector('#random-astronomy-button');
 
@@ -36,22 +40,21 @@ const randomAstronomydata = await fetchApi(randomAstronomyApiUrl);
 
 const launchData = await fetchApi(launchApiUrl);
 
-const selectButton1 = new SelectButton(randomAstronomyButton, launchData, templateStringLiteralLaunches, Card, templateStringLiteralAstronomy, randomAstronomydata, clearHtmlElement, '#card-container');
+const selectButton1 = new SelectButton(randomAstronomyButton, launchData, templateStringLiteralLaunches, Card, templateStringLiteralAstronomy, randomAstronomydata, clearHtmlElement, '#card-container', templateStringLiteralLaunchesBig, countDown);
 
 randomAstronomyButton.addEventListener('click', () => selectButton1.handleButtonClick());
     
 
 
-for (let i = 0; i < launchData.results.length; i++) {
 
-let launchCard = new Card(launchData.results[i], templateStringLiteralLaunches(launchData.results[i]), 'launch-card', '#card-container');
-launchCard.displayCard();
-}
 
 for (let i = 0; i < newsData.results.length; i++) {
     let newsCard = new Card(newsData.results[i], templateStringLiteralNews(newsData.results[i]), 'news-card', '#news-container');
     newsCard.displayCard();
 }
+
+selectButton1.launches();
+
 
 
 
