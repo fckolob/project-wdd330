@@ -31,6 +31,7 @@ const randomAstronomyApiUrl = 'https://api.nasa.gov/planetary/apod?api_key=3GCJl
 
 const newsApiUrl = 'https://api.spaceflightnewsapi.net/v4/articles/';
 
+window.onload = async () => {
 const newsData = await fetchApi(newsApiUrl);
 
 console.log(newsData);
@@ -53,7 +54,7 @@ for (let i = 0; i < newsData.results.length; i++) {
     newsCard.displayCard();
 }
 
-selectButton1.launches();
+selectButton1.launches();}
 
 
 
