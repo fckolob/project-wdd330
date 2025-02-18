@@ -203,3 +203,65 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+@media only screen and (max-width: 600px){
+  #body-container{
+    grid-template-columns: 1fr;
+    grid-template-rows: 200px 200px 1fr 1fr;
+  }
+  #card-container{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 5;
+  }
+  #news-container{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 5;
+    grid-row-end: 6;
+  }
+  #recent-visited-container{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+  #title-container{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  #title{
+    font-size: 1.5em;
+  }
+  .launch-card{
+    max-width: 100%;
+  }
+  .big-card{
+    max-width: 100%;
+  }
+  .astronomy-card{
+    max-width: 100%;
+  }
+  .news-card{
+    max-width: 100%;
+  }
+  .launch-img{
+    width: 100%;
+    height: auto;
+  }
+  .big-card .launch-img{
+    width: 100%;
+    height: auto;
+  }
+  .astronomy-img{
+    width: 100%;
+    height: auto;
+  }
+  .news-img{
+    width: 100%;
+    height: auto;
+  }
+}
