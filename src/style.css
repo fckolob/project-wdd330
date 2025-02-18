@@ -15,7 +15,7 @@ body{
   
   display: grid;
   grid-template-columns: 3fr 1fr;
-  grid-template-rows: 200px 200px 1fr;
+  grid-template-rows: 200px 500px 1fr;
 
 
   
@@ -39,8 +39,16 @@ body{
   grid-column-end: 2;
   grid-row-start: 2;
   grid-row-end: 3;
-  max-height: 100px;
+  max-width: 1150px;
   padding: 0 30px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 20px;
+  margin-bottom: 1em;
+  
+  
 }
 
 #card-container{
@@ -142,6 +150,32 @@ body{
   height: auto;
   object-fit: cover;
   border-radius: 1em;
+}
+#recent-viewed-title{
+  color:gold;
+  padding:.2em;
+  margin: .2em;
+}
+.message{
+  color:dodgerblue;
+}
+
+.recent-viewed-card{
+  flex: 1 150px;
+  flex-direction: column;
+  
+  max-width: 300px;
+  max-height: 200px;
+  padding: 20px 30px;
+  background-color:aqua;
+  border-radius: 10px;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.15);
+}
+
+.recent-viewed-img{
+  width:80px;
+  height:auto;
+  border-radius: 10px;
 }
 
 #title{

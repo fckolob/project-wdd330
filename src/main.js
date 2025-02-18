@@ -20,6 +20,11 @@ import SelectButton from "./js/randomAstronomyButton.mjs";
 import { templateStringLiteralNews } from "./js/newsApi.mjs";
 
 import { countDown } from "./js/ultils.mjs";
+import recentViewedStringTemplateLiteral from "./js/recentViewed.mjs";
+
+const recentViewedArray = [];
+
+const recentViewedContainer = "#recent-visited-container"
 
 const randomAstronomyButton = document.querySelector('#random-astronomy-button');
 
@@ -41,7 +46,7 @@ const randomAstronomydata = await fetchApi(randomAstronomyApiUrl);
 
 const launchData = await fetchApi(launchApiUrl);
 
-const selectButton1 = new SelectButton(randomAstronomyButton, launchData, templateStringLiteralLaunches, Card, templateStringLiteralAstronomy, randomAstronomydata, clearHtmlElement, '#card-container', templateStringLiteralLaunchesBig, countDown);
+const selectButton1 = new SelectButton(randomAstronomyButton, launchData, templateStringLiteralLaunches, Card, templateStringLiteralAstronomy, randomAstronomydata, clearHtmlElement, '#card-container', templateStringLiteralLaunchesBig, countDown, recentViewedArray, recentViewedContainer, recentViewedStringTemplateLiteral);
 
 randomAstronomyButton.addEventListener('click', () => selectButton1.handleButtonClick());
     

@@ -15,6 +15,9 @@ export function addToLocalStorage(data, key = LOCAL_STORAGE_KEY) {
     localStorage.setItem(key, JSON.stringify(dataArray));
   }
 
+  export function getLocalStorage(key = LOCAL_STORAGE_KEY) {
+    return JSON.parse(localStorage.getItem(key)) || [];
+  }
   
 
   export function convertToJson(response) {
