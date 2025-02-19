@@ -39,7 +39,7 @@ const newsApiUrl = 'https://api.spaceflightnewsapi.net/v4/articles/';
 window.onload = async () => {
 const newsData = await fetchApi(newsApiUrl);
 
-console.log(newsData);
+
 
 
 const randomAstronomydata = await fetchApi(randomAstronomyApiUrl);

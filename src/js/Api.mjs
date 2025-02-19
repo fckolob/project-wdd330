@@ -9,7 +9,7 @@ export async function fetchApi(url){
         const response = await fetch(url);
         const result = await convertToJson(response)
 
-        console.log(result);
+        
         return result;
     } catch (error) {
         console.error(error);

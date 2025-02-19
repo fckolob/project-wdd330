@@ -41,7 +41,7 @@ export default class SelectButton {
 
                 launchCard.displayCard();
                 let launchCardElement = document.getElementById(`${i}`);
-                console.log(launchCardElement);
+                
                 launchCardElement.addEventListener('click', () => {
                     this.clearHtmlElementFn(document.querySelector(this.containerElement));
                     
@@ -87,7 +87,7 @@ export default class SelectButton {
         
         
         this.clearHtmlElementFn(document.querySelector(this.recentViewedContainerElement));
-        console.log(recentViewedStorage);
+        
         
 
         if(recentViewedStorage.length < 1){
@@ -111,13 +111,12 @@ export default class SelectButton {
               
               let elementData;
          
-            console.log("executed recent viewed loop");
+            
             elementData = element;
             
             let recentViewedCard = new this.Card(elementData, this.templateStringLiteralRecentViewed(elementData), 'recent-viewed-card', "#recent-visited-container", this.templateStringLiteralLaunchesBigFn, `recent-viewed${ix}` );
             recentViewedCard.displayCard();
-            console.log(`recent viewed card ${recentViewedCard}`);
-            console.log(this.recentViewedContainerElement);
+            
             let recentViewedElement = document.getElementById(`recent-viewed${ix}`);
             recentViewedElement.addEventListener("click", ()=>{
                 this.clearHtmlElementFn(document.querySelector(this.containerElement));
