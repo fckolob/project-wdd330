@@ -29,7 +29,7 @@ export default class Card {
     const card = this.createCard();
     card.classList.remove(this.className);
     card.classList.add('big-card');
-    card.innerHTML = this.stringTemplateLiteralBig;
+    card.innerHTML = this.stringTemplateLiteralBig(this.data);
     const cardContainer = document.querySelector(this.cardContainer);
     cardContainer.appendChild(card);
   }

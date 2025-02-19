@@ -18,40 +18,25 @@ export default class SelectButton {
         this.recentViewedContainerElement = recentViewedContainerElement;
         this.templateStringLiteralRecentViewed = templateStringLiteralRecentViewed;
         
+        
     }
 
     launches(){
         
         this.clearHtmlElementFn(document.querySelector(this.containerElement));
-        this.clearHtmlElementFn(document.querySelector(this.recentViewedContainerElement));
-        document.querySelector(this.recentViewedContainerElement).style.display= "flex";
-        let recentViewedTitle = document.createElement("h2");
-        recentViewedTitle.id= "recent-viewed-title";
-        recentViewedTitle.textContent= "Recent Viewed";
-        document.querySelector(this.recentViewedContainerElement).appendChild(recentViewedTitle);
-
-        let recentViewedStorage = getLocalStorage("recent-viewed");
+        
+        let recentViewedStorageX = getLocalStorage("recent-viewed");
+        let recentViewedStorage = recentViewedStorageX.slice(0, 3);
+        setLocalStorage(recentViewedStorage, "recent-viewed");
+        this.recentVisited(recentViewedStorage);
+        
+        
+        
 
         
 
-        if(recentViewedStorage.length < 1){
-            document.querySelector(this.recentViewedContainerElement).innerHTML = "<p class='message'>There are not recent visited launches yet. Please, visit someone.</p>"
-            console.log("not recent visited yet")
-        }
-
-        else{
-
-        recentViewedStorage.forEach(element => {
-            let elementData = element;
-            let recentViewedCard = new this.Card(elementData, this.templateStringLiteralRecentViewed(elementData), 'recent-viewed-card', this.recentViewedContainerElement);
-            recentViewedCard.displayCard();  
-        }); 
-           
-            
-        }
-
         for (let i = 0; i < this.launchData.results.length; i++) {
-             let launchCard = new this.Card(this.launchData.results[i], this.templateStringLiteralLaunchesFn(this.launchData.results[i]), 'launch-card', '#card-container', this.templateStringLiteralLaunchesBigFn(this.launchData.results[i]), `${i}`);
+             let launchCard = new this.Card(this.launchData.results[i], this.templateStringLiteralLaunchesFn(this.launchData.results[i]), 'launch-card', '#card-container', this.templateStringLiteralLaunchesBigFn, `${i}`);
              
 
                 launchCard.displayCard();
@@ -59,9 +44,9 @@ export default class SelectButton {
                 console.log(launchCardElement);
                 launchCardElement.addEventListener('click', () => {
                     this.clearHtmlElementFn(document.querySelector(this.containerElement));
-                    this.clearHtmlElementFn(document.querySelector(this.recentViewedContainerElement));
-                    document.querySelector(this.recentViewedContainerElement).style.display= "none"; 
-                    launchCard.displayBigCard(this.templateStringLiteralLaunchesBigFn(this.launchData.results[i]));
+                    
+                    
+                    launchCard.displayBigCard(this.launchData.results[i])   ;
                 const backButton = document.querySelector(".launch-button");
                     
 
@@ -69,7 +54,7 @@ export default class SelectButton {
             backButton.addEventListener("click", () =>{this.launches();
             addToLocalStorage(this.launchData.results[i], "recent-viewed");
             } )
-            this.recentViewedArray.push(this.launchData.results[i]);})
+            })
             
             
             
@@ -97,4 +82,61 @@ export default class SelectButton {
             this.button.textContent = 'Launches';}
     }
 
-}
+    recentVisited(recentViewedStorage){
+
+        
+        
+        this.clearHtmlElementFn(document.querySelector(this.recentViewedContainerElement));
+        console.log(recentViewedStorage);
+        
+
+        if(recentViewedStorage.length < 1){
+            document.querySelector(this.recentViewedContainerElement).innerHTML = "<p class='message'>There are not recent visited launches yet. Please, visit someone.</p>"
+            console.log("not recent visited yet")
+        }
+
+        else{
+            let ix = 0;
+            
+            
+            let recentViewedTitle = document.createElement("h2");
+            recentViewedTitle.id= "recent-viewed-title";
+            recentViewedTitle.textContent= "Recent Viewed";
+            document.querySelector(this.recentViewedContainerElement).appendChild(recentViewedTitle);
+            
+            
+
+            recentViewedStorage.forEach(element => {
+              ix++;  
+              
+              let elementData;
+         
+            console.log("executed recent viewed loop");
+            elementData = element;
+            
+            let recentViewedCard = new this.Card(elementData, this.templateStringLiteralRecentViewed(elementData), 'recent-viewed-card', "#recent-visited-container", this.templateStringLiteralLaunchesBigFn, `recent-viewed${ix}` );
+            recentViewedCard.displayCard();
+            console.log(`recent viewed card ${recentViewedCard}`);
+            console.log(this.recentViewedContainerElement);
+            let recentViewedElement = document.getElementById(`recent-viewed${ix}`);
+            recentViewedElement.addEventListener("click", ()=>{
+                this.clearHtmlElementFn(document.querySelector(this.containerElement));
+                    
+                   
+                    recentViewedCard.displayBigCard(elementData);
+                const backButton = document.querySelector(".launch-button");
+                    
+
+                this.countDownFn(elementData.window_start, ".countdown");
+            backButton.addEventListener("click", () =>{this.launches();
+            addToLocalStorage(elementData, "recent-viewed");
+            } )
+            })
+        ; 
+    });
+          
+            
+        }}
+    }
+
+

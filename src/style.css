@@ -224,6 +224,19 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+footer{
+  background-color: indigo;
+  margin: 1rem;
+  width: 100%;
+}
+
+#footer-paragraph{
+  color: darkred;
+  padding: 1rem;
+  
+}
+
+
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -238,10 +251,18 @@ button:focus-visible {
   }
 }
 
+@media only screen and (min-height: 1024px){
+  #body-container{
+    grid-template-columns: 1fr;
+    grid-template-rows: 200px 900px .1fr .1fr;
+  }
+}
+
+
 @media only screen and (max-width: 600px){
   #body-container{
     grid-template-columns: 1fr;
-    grid-template-rows: 200px 200px 1fr 1fr;
+    grid-template-rows: 200px 200px .1fr .5fr;
   }
   #card-container{
     grid-column-start: 1;
@@ -260,6 +281,8 @@ button:focus-visible {
     grid-column-end: 2;
     grid-row-start: 3;
     grid-row-end: 4;
+    
+    
   }
   #title-container{
     grid-column-start: 1;
@@ -282,8 +305,18 @@ button:focus-visible {
   .news-card{
     max-width: 100%;
   }
+  .recent-viewed-card{
+    max-width: 100%;
+    
+    
+    
+  }
   .launch-img{
     width: 100%;
+    height: auto;
+  }
+  .recent-viewed-img{
+    width: 50%;
     height: auto;
   }
   .big-card .launch-img{
