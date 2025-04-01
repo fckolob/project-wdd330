@@ -1,4 +1,4 @@
-export async function launchesApi(){const url = 'https://lldev.thespacedevs.com/2.3.0/launches/?format=json&limit=2';
+export async function launchesApi(){const url = 'https://lldev.thespacedevs.com/2.3.0/events/upcoming/?format=json&limit=2';
 
 
     try {

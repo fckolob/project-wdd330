@@ -30,7 +30,7 @@ const randomAstronomyButton = document.querySelector('#random-astronomy-button')
 
 
 
-const launchApiUrl = 'https://lldev.thespacedevs.com/2.3.0/launches/?format=json&limit=30';
+const launchApiUrl = 'https://lldev.thespacedevs.com/2.3.0/launches/upcoming/?format=json&limit=30';
 
 const randomAstronomyApiUrl = 'https://api.nasa.gov/planetary/apod?api_key=3GCJlF6i1B6D9rEgLXpLPXbX40jtBEOeCsGxLAtg';
 
