@@ -93,7 +93,9 @@ body{
   border-radius: 1em;
 }
 
-.big-card .launch-img{
+
+
+.big-card .launch-img {
   width: 100%;
   height: auto;
   object-fit: cover;
@@ -254,15 +256,21 @@ footer{
 @media only screen and (min-height: 1024px){
   #body-container{
     grid-template-columns: 1fr;
-    grid-template-rows: 200px 900px .1fr .1fr;
+    grid-template-rows: 200px 900px .1fr .05fr;
   }
 }
 
 
 @media only screen and (max-width: 600px){
+
+
+
   #body-container{
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
     grid-template-columns: 1fr;
-    grid-template-rows: 200px 200px .1fr .5fr;
+    grid-template-rows: 200px 200px .1fr .5fr .1fr;
   }
   #card-container{
     grid-column-start: 1;
@@ -271,6 +279,7 @@ footer{
     grid-row-end: 5;
   }
   #news-container{
+    margin-top: 1.5rem;
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 5;
@@ -290,6 +299,17 @@ footer{
     grid-row-start: 1;
     grid-row-end: 2;
   }
+
+  footer{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 6;
+    grid-row-end: 7;
+    max-width: 90%;
+    max-height: 100px;
+    margin-top: 2rem;
+  }
+
   #title{
     font-size: 1.5em;
   }
@@ -315,6 +335,10 @@ footer{
     width: 100%;
     height: auto;
   }
+  #video{
+    width: 100%;
+    
+  }
   .recent-viewed-img{
     width: 50%;
     height: auto;
@@ -331,4 +355,24 @@ footer{
     width: 100%;
     height: auto;
   }
+
+  #rocket{
+    width: 100%;
+    height: auto;
+  }
 }
+
+
+@media only screen and (min-width: 800px){
+  #video{
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 320px){
+  #video{
+    width: 100%;
+    height: auto;
+  }
+}
+

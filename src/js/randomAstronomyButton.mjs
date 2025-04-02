@@ -53,6 +53,10 @@ export default class SelectButton {
                 this.countDownFn(this.launchData.results[i].window_start, ".countdown");
             backButton.addEventListener("click", () =>{this.launches();
             addToLocalStorage(this.launchData.results[i], "recent-viewed");
+            let recentViewedStorageX = getLocalStorage("recent-viewed");
+            let recentViewedStorage = recentViewedStorageX.slice(0, 3);
+            setLocalStorage(recentViewedStorage, "recent-viewed");
+            this.recentVisited(recentViewedStorage);
             } )
             })
             

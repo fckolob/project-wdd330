@@ -34,22 +34,23 @@ export function addToLocalStorage(data, key = LOCAL_STORAGE_KEY) {
   }
 
   export function countDown(launchDate, countDownElement){
-    var countDownDate = new Date(launchDate).getTime();
+    let countDownDate = new Date(launchDate).getTime();
+    //clearHtmlElement(document.querySelector(countDownElement));
 
 // Update the count down every 1 second
-var x = setInterval(function() {
+let x = setInterval(function() {
 
   // Get today's date and time
-  var now = new Date().getTime();
+  let now = new Date().getTime();
 
   // Find the distance between now and the count down date
-  var distance = countDownDate - now;
+  let distance = countDownDate - now;
 
   // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // Display the result in the element with id="demo"
   document.querySelector(countDownElement).innerHTML = days + "d " + hours + "h "
@@ -62,4 +63,12 @@ var x = setInterval(function() {
   }
 }, 1000);
 
+const backButton = document.querySelector(".launch-button");
+
+backButton.addEventListener("click", () => { clearInterval(x);});
+
   }
+
+  export const sleep = function(ms){
+    return new Promise(resolve => setTimeout(resolve, ms));
+  };

@@ -5,7 +5,7 @@ import { fetchApi } from "./js/Api.mjs";
 
 import { parseToDataObject } from "./js/Api.mjs";
 
-import { clearHtmlElement } from "./js/ultils.mjs";
+import { clearHtmlElement, sleep } from "./js/ultils.mjs";
 
 import Card from "./js/Card.mjs";
 
@@ -36,21 +36,29 @@ const randomAstronomyApiUrl = 'https://api.nasa.gov/planetary/apod?api_key=3GCJl
 
 const newsApiUrl = 'https://api.spaceflightnewsapi.net/v4/articles/';
 
+
+
+
+
+
+
 window.onload = async () => {
+
+
 const newsData = await fetchApi(newsApiUrl);
 
 
 
 
 const randomAstronomydata = await fetchApi(randomAstronomyApiUrl);
-
+console.log(randomAstronomydata);
 const launchData = await fetchApi(launchApiUrl);
-
+console.log(launchData);
 const selectButton1 = new SelectButton(randomAstronomyButton, launchData, templateStringLiteralLaunches, Card, templateStringLiteralAstronomy, randomAstronomydata, clearHtmlElement, '#card-container', templateStringLiteralLaunchesBig, countDown, recentViewedArray, recentViewedContainer, recentViewedStringTemplateLiteral);
 
 randomAstronomyButton.addEventListener('click', () => selectButton1.handleButtonClick());
     
-
+const animationElement = document.querySelector("#rocket");
 
 
 
@@ -59,7 +67,11 @@ for (let i = 0; i < newsData.results.length; i++) {
     newsCard.displayCard();
 }
 
-selectButton1.launches();}
+await selectButton1.launches();
+
+sleep(1500);
+
+animationElement.style.display= "none";}
 
 
 

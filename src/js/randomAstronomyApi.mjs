@@ -10,5 +10,11 @@ try {
 }}
 
 export function templateStringLiteralAstronomy(data) {
-	return `<div><h1>${data.title}</h1><p>${data.date}</p><p>${data.explanation}</p><img class="astronomy-img" src="${data.url}" alt="${data.title}"></img><div/>`;
+	if(data.media_type = "video"){
+		return  `<div><h1>${data.title}</h1><p>${data.date}</p><p>${data.explanation}</p><iframe id="video" width="420" height="315"
+src="${data.url}">
+</iframe><div/>`;
+	}
+	else{
+	return `<div><h1>${data.title}</h1><p>${data.date}</p><p>${data.explanation}</p><a href="${data.url}"><img class="astronomy-img" src="${data.url}" alt="${data.title}"></img><a/><div/>`;}
 }
