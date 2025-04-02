@@ -69,7 +69,7 @@ for (let i = 0; i < newsData.results.length; i++) {
 
 await selectButton1.launches();
 
-sleep(1000);
+//sleep(1000);
 
 animationElement.style.display= "none";}
 
