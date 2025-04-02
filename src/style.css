@@ -180,6 +180,10 @@ body{
   border-radius: 10px;
 }
 
+.recent-viewed-text{
+  font-size: 0.8em;
+}
+
 #title{
   
   color: floralwhite;

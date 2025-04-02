@@ -48,7 +48,7 @@ export default class SelectButton {
                     
                     launchCard.displayBigCard(this.launchData.results[i])   ;
                 const backButton = document.querySelector(".launch-button");
-                    
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
 
                 this.countDownFn(this.launchData.results[i].window_start, ".countdown");
             backButton.addEventListener("click", () =>{this.launches();
