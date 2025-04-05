@@ -74,6 +74,13 @@ body{
   background-color: #646cff;
   border-radius: 10px;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.15);
+  transition: ease-in 1s;
+}
+
+.launch-card:hover{
+  background-image: url(../public/rocket.gif);
+  color: gold;
+  border-radius: 50%;
 }
 
 .big-card{
@@ -141,9 +148,24 @@ body{
   max-width: 200px;
   padding: 1em;
   background-color:coral;
+  color: darkblue;
   border-radius: 10px;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.15);
   display: flex;
+  transition: ease-in-out 1s;
+}
+
+.news-card:hover{
+  background-color: dodgerblue;
+  
+}
+
+.news-card a{
+  transition: ease-in-out 1s;
+}
+
+.news-card a:hover{
+  color:black;
 }
 
 
@@ -157,6 +179,12 @@ body{
   color:gold;
   padding:.2em;
   margin: .2em;
+ 
+}
+
+.recent-viewed-card:hover{
+  background-color: darkblue;
+  color: cyan;
 }
 .message{
   color:dodgerblue;
@@ -172,6 +200,7 @@ body{
   background-color:aqua;
   border-radius: 10px;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.15);
+  transition: ease-in 1s;
 }
 
 .recent-viewed-img{
@@ -222,9 +251,14 @@ button {
   background-color: #de0909d3;
   cursor: pointer;
   transition: border-color 0.25s;
+  transition: ease-in-out 1s;
 }
 button:hover {
   border-color: #646cff;
+  transform: scale(120%);
+  background-color:blue;
+  color:crimson;
+  border-radius: 50%;
 }
 button:focus,
 button:focus-visible {

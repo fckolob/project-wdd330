@@ -2,9 +2,9 @@ export function addToLocalStorage(data, key = LOCAL_STORAGE_KEY) {
     if (localStorage.getItem(key) == null) {
       let dataArray = [data];
       localStorage.setItem(key, JSON.stringify(dataArray));
-      //dataArray.push( JSON.parse(localStorage.getItem(key)));
+      
     } else {
-      let dataArray = JSON.parse(localStorage.getItem(key)); //
+      let dataArray = JSON.parse(localStorage.getItem(key)); 
       dataArray.unshift(data);
       localStorage.setItem(key, JSON.stringify(dataArray));
     }
@@ -35,7 +35,7 @@ export function addToLocalStorage(data, key = LOCAL_STORAGE_KEY) {
 
   export function countDown(launchDate, countDownElement){
     let countDownDate = new Date(launchDate).getTime();
-    //clearHtmlElement(document.querySelector(countDownElement));
+    
 
 // Update the count down every 1 second
 let x = setInterval(function() {
@@ -52,7 +52,7 @@ let x = setInterval(function() {
   let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  // Display the result in the element with id="demo"
+  
   document.querySelector(countDownElement).innerHTML = days + "d " + hours + "h "
   + minutes + "m " + seconds + "s ";
 
