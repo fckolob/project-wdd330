@@ -65,6 +65,12 @@ let x = setInterval(function() {
 
 const backButton = document.querySelector(".launch-button");
 
+const recentViewedArray = document.querySelectorAll(".recent-viewed-card");
+
+recentViewedArray.forEach(element => {
+  element.addEventListener("click", () => {clearInterval(x);})
+});
+
 backButton.addEventListener("click", () => { clearInterval(x);});
 
   }

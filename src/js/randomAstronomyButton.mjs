@@ -1,6 +1,7 @@
 import { setLocalStorage } from "./ultils.mjs";
 import { addToLocalStorage } from "./ultils.mjs";
 import { getLocalStorage } from "./ultils.mjs";
+import { sleep } from "./ultils.mjs";
 export default class SelectButton {
     constructor(button, launchData, templateStringLiteralLaunchesFn, Card, templateStringLiteralAstronomyFn, randomAstronomyData, clearHtmlElementFn, containerElement, templateStringLiteralLaunchesBigFn, countDownFn, recentViewedArray, recentViewedContainerElement, templateStringLiteralRecentViewed) {
         this.button = button;
@@ -21,7 +22,7 @@ export default class SelectButton {
         
     }
 
-    launches(){
+     launches(){
         
         this.clearHtmlElementFn(document.querySelector(this.containerElement));
         
@@ -50,6 +51,16 @@ export default class SelectButton {
                 const backButton = document.querySelector(".launch-button");
                   window.scrollTo({ top: 0, behavior: 'smooth' });
 
+                  sleep(1000);
+
+                  window.scrollTo({ top: 1500, behavior: 'smooth' });
+
+                  sleep(1000);
+
+                  window.scrollTo({ top: 500, behavior: 'smooth' });
+
+                  document.body.style.backgroundImage = "url(../public/space.webp)";
+
                 this.countDownFn(this.launchData.results[i].window_start, ".countdown");
             backButton.addEventListener("click", () =>{this.launches();
             addToLocalStorage(this.launchData.results[i], "recent-viewed");
@@ -57,6 +68,7 @@ export default class SelectButton {
             let recentViewedStorage = recentViewedStorageX.slice(0, 3);
             setLocalStorage(recentViewedStorage, "recent-viewed");
             this.recentVisited(recentViewedStorage);
+            document.body.style.backgroundImage = "none"
             } )
             })
             
@@ -73,8 +85,19 @@ export default class SelectButton {
         this.clearHtmlElementFn(document.querySelector(this.containerElement));
         let randomAstronomyCard = new this.Card(this.randomAstronomyData, this.templateStringLiteralAstronomyFn(this.randomAstronomyData), 'astronomy-card', this.containerElement);
         randomAstronomyCard.displayCard();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                  //sleep(1000);
+
+                  window.scrollTo({ top: 1500, behavior: 'smooth' });
+
+                  ///sleep(1000);
+
+                  window.scrollTo({ top: 500, behavior: 'smooth' });
+
+                  document.body.style.backgroundImage = "url(../public/space2.jpg)";
         
-        
+        this.button.addEventListener("click", () => {document.body.style.backgroundImage = "none"});
     }
 
     handleButtonClick(){
@@ -124,13 +147,15 @@ export default class SelectButton {
             let recentViewedElement = document.getElementById(`recent-viewed${ix}`);
             recentViewedElement.addEventListener("click", ()=>{
                 this.clearHtmlElementFn(document.querySelector(this.containerElement));
-                    
+                this.clearHtmlElementFn(document.querySelector(this.recentViewedContainerElement));    
                    
                     recentViewedCard.displayBigCard(elementData);
                 const backButton = document.querySelector(".launch-button");
                     
 
                 this.countDownFn(elementData.window_start, ".countdown");
+
+                
             backButton.addEventListener("click", () =>{this.launches();
             addToLocalStorage(elementData, "recent-viewed");
             } )
