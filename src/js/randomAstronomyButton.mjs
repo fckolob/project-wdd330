@@ -23,6 +23,8 @@ export default class SelectButton {
     }
 
      launches(){
+
+        document.body.style.backgroundImage = "none";  
         
         this.clearHtmlElementFn(document.querySelector(this.containerElement));
         
@@ -58,8 +60,8 @@ export default class SelectButton {
                   sleep(1000);
 
                   window.scrollTo({ top: 500, behavior: 'smooth' });
-
-                  document.body.style.backgroundImage = "url(../public/space.webp)";
+                  document.body.style.backgroundImage = "none";  
+                  document.body.style.backgroundImage = "url(/space.webp)";
 
                 this.countDownFn(this.launchData.results[i].window_start, ".countdown");
             backButton.addEventListener("click", () =>{this.launches();
@@ -75,13 +77,14 @@ export default class SelectButton {
             
             
 }
+this.button.textContent = "Random Astronomy";
             
             }
         
     
 
     astronomy(){
-        
+        this.launches();
         this.clearHtmlElementFn(document.querySelector(this.containerElement));
         let randomAstronomyCard = new this.Card(this.randomAstronomyData, this.templateStringLiteralAstronomyFn(this.randomAstronomyData), 'astronomy-card', this.containerElement);
         randomAstronomyCard.displayCard();
@@ -94,10 +97,10 @@ export default class SelectButton {
                   ///sleep(1000);
 
                   window.scrollTo({ top: 500, behavior: 'smooth' });
-
-                  document.body.style.backgroundImage = "url(../public/space2.jpg)";
+                  document.body.style.backgroundImage = "none";  
+                  document.body.style.backgroundImage = "url(/space2.jpg)";
         
-        this.button.addEventListener("click", () => {document.body.style.backgroundImage = "none"});
+        
     }
 
     handleButtonClick(){
@@ -151,12 +154,16 @@ export default class SelectButton {
                    
                     recentViewedCard.displayBigCard(elementData);
                 const backButton = document.querySelector(".launch-button");
-                    
+                
+                
 
                 this.countDownFn(elementData.window_start, ".countdown");
+                document.body.style.backgroundImage = "none";  
+                document.body.style.backgroundImage = "url(/space3x.jpg)";
 
                 
             backButton.addEventListener("click", () =>{this.launches();
+              
             addToLocalStorage(elementData, "recent-viewed");
             } )
             })

@@ -65,6 +65,10 @@ let x = setInterval(function() {
 
 const backButton = document.querySelector(".launch-button");
 
+const button = document.querySelector("#random-astronomy-button");
+
+button.addEventListener("click", () => {clearInterval(x);})
+
 const recentViewedArray = document.querySelectorAll(".recent-viewed-card");
 
 recentViewedArray.forEach(element => {
