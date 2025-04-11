@@ -122,7 +122,7 @@ this.button.textContent = "Random Astronomy";
 
         if(recentViewedStorage.length < 1){
             document.querySelector(this.recentViewedContainerElement).innerHTML = "<p class='message'>There are not recent visited launches yet. Please, visit someone.</p>"
-            console.log("not recent visited yet")
+           // console.log("not recent visited yet")
         }
 
         else{

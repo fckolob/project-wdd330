@@ -51,9 +51,9 @@ const newsData = await fetchApi(newsApiUrl);
 
 
 const randomAstronomydata = await fetchApi(randomAstronomyApiUrl);
-console.log(randomAstronomydata);
+//console.log(randomAstronomydata);
 const launchData = await fetchApi(launchApiUrl);
-console.log(launchData);
+//console.log(launchData);
 const selectButton1 = new SelectButton(randomAstronomyButton, launchData, templateStringLiteralLaunches, Card, templateStringLiteralAstronomy, randomAstronomydata, clearHtmlElement, '#card-container', templateStringLiteralLaunchesBig, countDown, recentViewedArray, recentViewedContainer, recentViewedStringTemplateLiteral);
 
 randomAstronomyButton.addEventListener('click', () => selectButton1.handleButtonClick());
