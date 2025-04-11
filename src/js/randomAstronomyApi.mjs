@@ -1,6 +1,6 @@
 
 export function templateStringLiteralAstronomy(data) {
-	if(data.media_type = "video" && !data.url.includes(".jpg")){
+	if(data.media_type === "video" && !data.url.includes(".jpg") && !data.url.includes(".jpeg")){
 		return  `<div><h1>${data.title}</h1><p>${data.date}</p><p>${data.explanation}</p><iframe id="video" width="420" height="315"
 src="${data.url}" allowfullscreen>
 </iframe><div/>`;
