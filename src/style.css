@@ -234,12 +234,13 @@ body{
   animation-name: animate;
   animation-duration: 1.5s;
   position: relative;
+  font-size: 1.5em;
 }
 
 .recent-viewed-img{
-  width:80px;
+  width:70%;
   height:auto;
-  max-height: 180px;
+  
   border-radius: 10px;
 }
 
@@ -327,8 +328,15 @@ footer{
 
 @media only screen and (min-height: 1024px){
   #body-container{
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 200px 900px .1fr .05fr;
+  }
+  .recent-viewed-card{
+    font-size: 0.8em;
+  }
+  .recent-viewed-img{
+    width: 50%;
+    height: auto;
   }
 }
 
@@ -399,6 +407,7 @@ footer{
   }
   .recent-viewed-card{
     max-width: 100%;
+    font-size: 0.8em;
     
     
     
@@ -435,9 +444,13 @@ footer{
 }
 
 
+
 @media only screen and (min-width: 800px){
   #video{
     width: 90%;
+  }
+  .recent-viewed-card{
+    font-size: 0.6em;
   }
 }
 
